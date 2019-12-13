@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Contour Maps &mdash; mapped 19.12.0 documentation</title>
+  <title>Contour Maps &mdash; mapped 19.12.1 documentation</title>
   
 
   
@@ -64,7 +64,7 @@
             
             
               <div class="version">
-                19.12.0
+                19.12.1
               </div>
             
           
@@ -391,8 +391,8 @@ div.rendered_html tbody tr:hover {
 <span class="kn">import</span> <span class="nn">geopandas</span> <span class="kn">as</span> <span class="nn">gpd</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
 <span class="kn">import</span> <span class="nn">mapped</span>
-<span class="kn">from</span> <span class="nn">mapped.density</span> <span class="kn">import</span> <span class="n">GeoKernelDensity</span><span class="p">,</span> <span class="n">plot_mesh_contour</span>
-<span class="n">mapped</span><span class="o">.</span><span class="n">__version__</span>
+<span class="kn">from</span> <span class="nn">mapped.density</span> <span class="kn">import</span> <span class="n">GeoKernelDensity</span>
+<span class="n">mapped</span><span class="o">.</span><span class="n">__version__</span><span class="p">,</span> <span class="n">gpd</span><span class="o">.</span><span class="n">__version__</span>
 </pre></div>
 </div>
 </div>
@@ -401,7 +401,7 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>&#39;19.12.0&#39;
+<span></span>(&#39;19.12.1&#39;, &#39;0.6.2&#39;)
 </pre></div>
 </div>
 </div>
@@ -447,34 +447,34 @@ div.rendered_html tbody tr:hover {
   </thead>
   <tbody>
     <tr>
-      <th>0</th>
-      <td>52.064541</td>
-      <td>B</td>
-      <td>POINT (-9937504.906791614 5319115.428665807)</td>
-    </tr>
-    <tr>
       <th>1</th>
-      <td>50.761888</td>
+      <td>73.522015</td>
       <td>A</td>
-      <td>POINT (-9954448.395076841 5315974.063502626)</td>
+      <td>POINT (-9945192.638 5333669.463)</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>55.079217</td>
-      <td>B</td>
-      <td>POINT (-9943478.867470412 5307611.28951565)</td>
+      <td>59.605820</td>
+      <td>A</td>
+      <td>POINT (-9952134.036 5321688.221)</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>52.615496</td>
+      <td>52.676887</td>
       <td>A</td>
-      <td>POINT (-9936556.658328719 5318097.389932256)</td>
+      <td>POINT (-9937860.167 5328515.553)</td>
     </tr>
     <tr>
-      <th>5</th>
-      <td>51.080653</td>
+      <th>6</th>
+      <td>22.133990</td>
       <td>B</td>
-      <td>POINT (-9938781.95491216 5309253.875335691)</td>
+      <td>POINT (-9948386.303 5310253.324)</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>34.937765</td>
+      <td>A</td>
+      <td>POINT (-9963868.554 5319452.429)</td>
     </tr>
   </tbody>
 </table>
@@ -497,7 +497,7 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">gkde</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">basemap</span><span class="o">=</span><span class="s1">&#39;Stamen.TonerLite&#39;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">12</span><span class="p">),</span> <span class="n">levels</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">gkde</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">basemap</span><span class="o">=</span><span class="s1">&#39;CartoDB&#39;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">12</span><span class="p">),</span> <span class="n">levels</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 <span class="n">points</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span> <span class="p">);</span>
 </pre></div>
 </div>
@@ -525,16 +525,20 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">points</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;letter==&#39;A&#39;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">basemap</span><span class="o">=</span><span class="s1">&#39;Stamen.TonerLite&#39;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">12</span><span class="p">))</span>
-<span class="n">points</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;letter==&#39;B&#39;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span> <span class="p">);</span>
+<span></span><span class="n">points</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;letter&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
 </div>
-<div class="output_area docutils container">
-<img alt="_images/example-contours_11_0.png" src="_images/example-contours_11_0.png" />
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>letter
+A    174
+B     65
+dtype: int64
+</pre></div>
 </div>
 </div>
 <div class="nbinput docutils container">
@@ -542,8 +546,8 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">gkde_m</span><span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">basemap</span><span class="o">=</span><span class="s1">&#39;Stamen.TonerLite&#39;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">12</span><span class="p">),</span> <span class="n">levels</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Blues&#39;</span><span class="p">);</span>
-<span class="n">gkde_m</span><span class="p">[</span><span class="s1">&#39;B&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">12</span><span class="p">),</span> <span class="n">levels</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Reds&#39;</span><span class="p">);</span>
+<span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">points</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;letter==&#39;A&#39;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">basemap</span><span class="o">=</span><span class="s1">&#39;CartoDB&#39;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">12</span><span class="p">))</span>
+<span class="n">points</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s2">&quot;letter==&#39;B&#39;&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span> <span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -554,16 +558,33 @@ div.rendered_html tbody tr:hover {
 <img alt="_images/example-contours_12_0.png" src="_images/example-contours_12_0.png" />
 </div>
 </div>
-<p>The red and blue contours on the plot above have different scales. To harmonize the scales, we need to compute the levels explicitly and pass them to the function. We can also smooth it out my increasing the resolution from the default (which is 100).</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">mesh</span> <span class="o">=</span> <span class="n">gkde_m</span><span class="o">.</span><span class="n">point_grid</span><span class="p">(</span><span class="n">resolution</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">bounds</span><span class="o">=</span><span class="n">points</span><span class="p">,</span> <span class="n">total</span><span class="o">=</span><span class="s1">&#39;TOT&#39;</span><span class="p">)</span>
-<span class="n">levels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="n">mesh</span><span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="n">mesh</span><span class="p">[</span><span class="s1">&#39;B&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()),</span> <span class="mi">8</span><span class="p">)</span>
+<span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">gkde_m</span><span class="p">[</span><span class="s1">&#39;A&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">basemap</span><span class="o">=</span><span class="s1">&#39;CartoDB&#39;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">12</span><span class="p">),</span> <span class="n">levels</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Blues&#39;</span><span class="p">);</span>
+<span class="n">gkde_m</span><span class="p">[</span><span class="s1">&#39;B&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">12</span><span class="p">),</span> <span class="n">levels</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Reds&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="_images/example-contours_13_0.png" src="_images/example-contours_13_0.png" />
+</div>
+</div>
+<p>The red and blue contours on the plot above have different scales. To harmonize the scales, we need to compute the levels explicitly and pass them to the function. We can also smooth it out my increasing the resolution from the default (which is 100).</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">mesh</span> <span class="o">=</span> <span class="n">gkde_m</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">resolution</span><span class="o">=</span><span class="mi">300</span><span class="p">,</span> <span class="n">bounds</span><span class="o">=</span><span class="n">points</span><span class="p">,</span> <span class="n">total</span><span class="o">=</span><span class="s1">&#39;TOT&#39;</span><span class="p">)</span>
+<span class="n">levels</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">mesh</span><span class="p">[[</span><span class="s1">&#39;A&#39;</span><span class="p">,</span><span class="s1">&#39;B&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">max</span><span class="p">(),</span> <span class="mi">8</span><span class="p">)</span>
 
-<span class="n">ax</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="n">basemap</span><span class="o">=</span><span class="s1">&#39;Stamen.TonerLite&#39;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">12</span><span class="p">),</span> <span class="n">levels</span><span class="o">=</span><span class="n">levels</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Blues&#39;</span><span class="p">);</span>
+<span class="n">ax</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="s1">&#39;A&#39;</span><span class="p">,</span> <span class="n">basemap</span><span class="o">=</span><span class="s1">&#39;CartoDB&#39;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">12</span><span class="p">),</span> <span class="n">levels</span><span class="o">=</span><span class="n">levels</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Blues&#39;</span><span class="p">);</span>
 <span class="n">mesh</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="s1">&#39;B&#39;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">12</span><span class="p">),</span> <span class="n">levels</span><span class="o">=</span><span class="n">levels</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Reds&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
@@ -572,37 +593,41 @@ div.rendered_html tbody tr:hover {
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="_images/example-contours_14_0.png" src="_images/example-contours_14_0.png" />
+<img alt="_images/example-contours_15_0.png" src="_images/example-contours_15_0.png" />
 </div>
 </div>
-<p>We can mask out lakes if we have a the shape of the lakes from some data file.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="kn">import</span> <span class="nn">pickle</span>
-<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s2">&quot;dane_county_land.pkl&quot;</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
-    <span class="n">land</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
-
-<span class="n">land</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">(</span>
-    <span class="n">geometry</span><span class="o">=</span><span class="p">[</span><span class="n">land</span><span class="p">],</span>
-    <span class="n">crs</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;init&#39;</span><span class="p">:</span> <span class="s1">&#39;epsg:4326&#39;</span><span class="p">,</span> <span class="s1">&#39;no_defs&#39;</span><span class="p">:</span> <span class="bp">True</span><span class="p">},</span>
-<span class="p">)</span><span class="o">.</span><span class="n">to_crs</span><span class="p">(</span><span class="n">mesh</span><span class="o">.</span><span class="n">crs</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="nbinput nblast docutils container">
+<p>We can mask out lakes if we have a the shape of the lakes. We can use load those shapes from the examples (assuming you have OSMnx installed, to get the shapes from OpenStreetMap).</p>
+<div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">mask</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">within</span><span class="p">(</span><span class="n">land</span><span class="o">.</span><span class="n">unary_union</span><span class="p">)</span>
+<span></span><span class="kn">from</span> <span class="nn">mapped.example_data</span> <span class="kn">import</span> <span class="n">mad_lakes</span>
+<span class="n">lakes</span> <span class="o">=</span> <span class="n">mad_lakes</span><span class="p">()</span>
+<span class="n">lakes</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">basemap</span><span class="o">=</span><span class="s1">&#39;CartoDB&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">12</span><span class="p">));</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="_images/example-contours_17_0.png" src="_images/example-contours_17_0.png" />
+</div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">mask</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">mesh</span><span class="p">),</span> <span class="n">dtype</span><span class="o">=</span><span class="nb">bool</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">lake</span> <span class="ow">in</span> <span class="n">lakes</span><span class="o">.</span><span class="n">geometry</span><span class="p">:</span>
+    <span class="n">mask</span> <span class="o">&amp;=</span> <span class="o">~</span><span class="n">mesh</span><span class="o">.</span><span class="n">within</span><span class="p">(</span><span class="n">lake</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -611,7 +636,7 @@ div.rendered_html tbody tr:hover {
     <span class="n">filled</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
     <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
     <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Blues&#39;</span><span class="p">,</span>
-    <span class="n">basemap</span><span class="o">=</span><span class="s1">&#39;Stamen.TonerLite&#39;</span><span class="p">,</span>
+    <span class="n">basemap</span><span class="o">=</span><span class="s1">&#39;CartoDB&#39;</span><span class="p">,</span>
     <span class="n">levels</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
     <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">12</span><span class="p">),</span>
     <span class="n">mask</span><span class="o">=</span><span class="n">mask</span><span class="p">,</span>
@@ -623,12 +648,12 @@ div.rendered_html tbody tr:hover {
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="_images/example-contours_18_0.png" src="_images/example-contours_18_0.png" />
+<img alt="_images/example-contours_19_0.png" src="_images/example-contours_19_0.png" />
 </div>
 </div>
 <p>Plot the relative kernel density of A.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
@@ -637,7 +662,7 @@ div.rendered_html tbody tr:hover {
     <span class="n">filled</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
     <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
     <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Blues&#39;</span><span class="p">,</span>
-    <span class="n">basemap</span><span class="o">=</span><span class="s1">&#39;Stamen.TonerLite&#39;</span><span class="p">,</span>
+    <span class="n">basemap</span><span class="o">=</span><span class="s1">&#39;CartoDB&#39;</span><span class="p">,</span>
     <span class="n">levels</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
     <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">12</span><span class="p">),</span>
 <span class="p">)</span>
@@ -652,28 +677,30 @@ div.rendered_html tbody tr:hover {
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="_images/example-contours_20_0.png" src="_images/example-contours_20_0.png" />
+<img alt="_images/example-contours_21_0.png" src="_images/example-contours_21_0.png" />
 </div>
 </div>
-<p>Plot the relative kernel density of B, masking lakes.</p>
+<p>This is plotting densities across the entire field, but perhaps we only want to plot the densities on land. We can use the same mask as before to plot the relative kernel density of B, masking lakes.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">plot_mesh_contour</span><span class="p">(</span>
-    <span class="n">mesh</span><span class="p">,</span> <span class="s1">&#39;B/TOT&#39;</span><span class="p">,</span>
+<span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span>
+    <span class="s1">&#39;B/TOT&#39;</span><span class="p">,</span>
     <span class="n">filled</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
     <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
     <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Reds&#39;</span><span class="p">,</span>
-    <span class="n">basemap</span><span class="o">=</span><span class="s1">&#39;Stamen.TonerLite&#39;</span><span class="p">,</span>
+    <span class="n">basemap</span><span class="o">=</span><span class="s1">&#39;CartoDB.PositronNoLabels&#39;</span><span class="p">,</span>
     <span class="n">levels</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
     <span class="n">mask</span><span class="o">=</span><span class="n">mask</span><span class="p">,</span>
     <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">12</span><span class="p">),</span>
 <span class="p">)</span>
 
 <span class="c1"># Draw a black border over lakeshores for a cleaner look.</span>
-<span class="n">land</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">);</span>
+<span class="n">lakes</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">mapped</span><span class="o">.</span><span class="n">add_basemap</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">tiles</span><span class="o">=</span><span class="s1">&#39;Stamen.TonerLabels&#39;</span><span class="p">,</span> <span class="n">zoom</span><span class="o">=</span><span class="mi">11</span><span class="p">);</span>
+
 </pre></div>
 </div>
 </div>
@@ -681,9 +708,50 @@ div.rendered_html tbody tr:hover {
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="_images/example-contours_22_0.png" src="_images/example-contours_22_0.png" />
+<img alt="_images/example-contours_23_0.png" src="_images/example-contours_23_0.png" />
 </div>
 </div>
+<p>You might notice this relative density is a bit noisy, especially around the map edges where the overall density is quite low. We can add a prior assumption on the relative density, that the baseline probability of each letter is proportional to the global probability, and the observed points are used to measure a deviation from this prior. To do so, we can use the <code class="docutils literal notranslate"><span class="pre">add_prior</span></code> function of the <code class="docutils literal notranslate"><span class="pre">GeoKernelDensities</span></code> object. Here we take a copy of the original meash</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">mesh1</span> <span class="o">=</span> <span class="n">gkde_m</span><span class="o">.</span><span class="n">add_prior</span><span class="p">(</span><span class="n">mesh</span><span class="p">,</span> <span class="n">total</span><span class="o">=</span><span class="s1">&#39;TOT&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">mesh1</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span>
+    <span class="s1">&#39;B/TOT&#39;</span><span class="p">,</span>
+    <span class="n">filled</span><span class="o">=</span><span class="bp">True</span><span class="p">,</span>
+    <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span>
+    <span class="n">cmap</span><span class="o">=</span><span class="s1">&#39;Reds&#39;</span><span class="p">,</span>
+    <span class="n">basemap</span><span class="o">=</span><span class="s1">&#39;CartoDB.PositronNoLabels&#39;</span><span class="p">,</span>
+    <span class="n">levels</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+    <span class="n">mask</span><span class="o">=</span><span class="n">mask</span><span class="p">,</span>
+    <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span><span class="mi">12</span><span class="p">),</span>
+<span class="p">)</span>
+
+<span class="c1"># Draw a black border over lakeshores for a cleaner look.</span>
+<span class="n">lakes</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">color</span><span class="o">=</span><span class="s2">&quot;none&quot;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s2">&quot;black&quot;</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">)</span>
+<span class="n">mapped</span><span class="o">.</span><span class="n">add_basemap</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">tiles</span><span class="o">=</span><span class="s1">&#39;Stamen.TonerLabels&#39;</span><span class="p">,</span> <span class="n">zoom</span><span class="o">=</span><span class="mi">11</span><span class="p">);</span>
+
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="_images/example-contours_26_0.png" src="_images/example-contours_26_0.png" />
+</div>
+</div>
+<p>This map doesn’t show the relative density of ‘B’ peaking in Verona, nor bottoming out at zero in the other edges.</p>
 <script type="application/vnd.jupyter.widget-state+json">
 {"state": {}, "version_major": 2, "version_minor": 0}
 </script></div>
@@ -710,7 +778,7 @@ div.rendered_html tbody tr:hover {
     <p>
         &copy; Copyright 2019, Jeffrey Newman
       <span class="lastupdated">
-        Last updated on Dec 06, 2019.
+        Last updated on Dec 13, 2019.
       </span>
 
     </p>

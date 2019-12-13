@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Base Maps &mdash; mapped 19.12.0 documentation</title>
+  <title>Base Maps &mdash; mapped 19.12.1 documentation</title>
   
 
   
@@ -64,7 +64,7 @@
             
             
               <div class="version">
-                19.12.0
+                19.12.1
               </div>
             
           
@@ -389,7 +389,7 @@ div.rendered_html tbody tr:hover {
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="kn">import</span> <span class="nn">geopandas</span> <span class="kn">as</span> <span class="nn">gpd</span>
 <span class="kn">import</span> <span class="nn">mapped</span>
-<span class="n">mapped</span><span class="o">.</span><span class="n">__version__</span>
+<span class="n">mapped</span><span class="o">.</span><span class="n">__version__</span><span class="p">,</span> <span class="n">gpd</span><span class="o">.</span><span class="n">__version__</span>
 </pre></div>
 </div>
 </div>
@@ -398,7 +398,7 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>&#39;19.12.0&#39;
+<span></span>(&#39;19.12.1&#39;, &#39;0.6.2&#39;)
 </pre></div>
 </div>
 </div>
@@ -407,17 +407,18 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">df</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="n">gpd</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">get_path</span><span class="p">(</span><span class="s1">&#39;nybb&#39;</span><span class="p">))</span>
+<span></span><span class="n">nybb</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="n">gpd</span><span class="o">.</span><span class="n">datasets</span><span class="o">.</span><span class="n">get_path</span><span class="p">(</span><span class="s1">&#39;nybb&#39;</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
-<p>Importing <code class="docutils literal notranslate"><span class="pre">mapped</span></code> monkeypatches <code class="docutils literal notranslate"><span class="pre">geopandas</span></code> to add a keyword <code class="docutils literal notranslate"><span class="pre">basemap</span></code> to the <code class="docutils literal notranslate"><span class="pre">geopandas.GeoDataFrame.plot</span></code> function, which adds a contextual background map to plots. Set to <code class="docutils literal notranslate"><span class="pre">True</span></code> to get a default map style from Stamen Design.</p>
+<p>Importing <code class="docutils literal notranslate"><span class="pre">mapped</span></code> monkeypatches <code class="docutils literal notranslate"><span class="pre">geopandas</span></code> to add several features to the <code class="docutils literal notranslate"><span class="pre">geopandas.GeoDataFrame.plot</span></code> method.</p>
+<p>First, it adds the keyword argument <code class="docutils literal notranslate"><span class="pre">basemap</span></code>, which adds a contextual background map to plots. Set to <code class="docutils literal notranslate"><span class="pre">True</span></code> to get a default terrain map style from Stamen Design.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">basemap</span><span class="o">=</span><span class="bp">True</span><span class="p">);</span>
+<span></span><span class="n">nybb</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">basemap</span><span class="o">=</span><span class="bp">True</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -428,13 +429,13 @@ div.rendered_html tbody tr:hover {
 <img alt="_images/example-basemap_4_0.png" src="_images/example-basemap_4_0.png" />
 </div>
 </div>
-<p>Or set to a string naming a style offered by <code class="docutils literal notranslate"><span class="pre">contextily</span></code> to get other map styles. See a list of tile providers <a class="reference external" href="https://github.com/darribas/contextily/blob/master/contextily/tile_providers.py">here</a>.</p>
+<p>Or set to a string naming a style offered by <code class="docutils literal notranslate"><span class="pre">contextily</span></code> to get other map styles. See a list of tile providers <a class="reference external" href="https://github.com/darribas/contextily/blob/master/contextily/_providers.py">here</a>.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">basemap</span><span class="o">=</span><span class="s1">&#39;ST_TONER&#39;</span><span class="p">);</span>
+<span></span><span class="n">nybb</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">basemap</span><span class="o">=</span><span class="s1">&#39;Stamen.Toner&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -450,7 +451,7 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">basemap</span><span class="o">=</span><span class="s1">&#39;ST_TONER_LITE&#39;</span><span class="p">);</span>
+<span></span><span class="n">nybb</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">basemap</span><span class="o">=</span><span class="s1">&#39;Stamen.TonerLite&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -466,7 +467,7 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">basemap</span><span class="o">=</span><span class="s1">&#39;ST_TONER_BACKGROUND&#39;</span><span class="p">);</span>
+<span></span><span class="n">nybb</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">basemap</span><span class="o">=</span><span class="s1">&#39;Stamen.TonerBackground&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -478,21 +479,14 @@ div.rendered_html tbody tr:hover {
 </div>
 </div>
 <p>Note that a coordinate reference system (crs) must be defined on the GeoDataFrame if it is not already in Web Mercator (EPSG:3857). Otherwise, the map tiles will probably not align correctly and you will get unexpected results.</p>
-<div class="nbinput nblast docutils container">
+<div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">df</span><span class="o">.</span><span class="n">crs</span> <span class="o">=</span> <span class="bp">None</span>
-</pre></div>
-</div>
-</div>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">basemap</span><span class="o">=</span><span class="bp">True</span><span class="p">);</span>
+<span></span><span class="n">nybb2</span> <span class="o">=</span> <span class="n">nybb</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+<span class="n">nybb2</span><span class="o">.</span><span class="n">crs</span> <span class="o">=</span> <span class="bp">None</span>
+<span class="n">nybb2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">basemap</span><span class="o">=</span><span class="bp">True</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -500,17 +494,37 @@ div.rendered_html tbody tr:hover {
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="_images/example-basemap_11_0.png" src="_images/example-basemap_11_0.png" />
+<img alt="_images/example-basemap_10_0.png" src="_images/example-basemap_10_0.png" />
 </div>
 </div>
-<p>Mapped also offers a seperate <code class="docutils literal notranslate"><span class="pre">add_basemap</span></code> method to attach a basemap to an existing matplotlib <code class="docutils literal notranslate"><span class="pre">AxesSubplot</span></code>.</p>
+<p>When calling the <code class="docutils literal notranslate"><span class="pre">plot</span></code> method, the CRS is attached to the subplot axes as <code class="docutils literal notranslate"><span class="pre">crs</span></code>, and this is used to ensure that subsequent map objects drawn to the same axes are rendered correctly, even if they use a different CRS.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">osmnx</span> <span class="kn">as</span> <span class="nn">ox</span>
+<span class="n">newark</span> <span class="o">=</span> <span class="n">ox</span><span class="o">.</span><span class="n">gdf_from_place</span><span class="p">(</span><span class="s2">&quot;Newark, NJ&quot;</span><span class="p">)</span>
+<span class="n">newark</span><span class="o">.</span><span class="n">crs</span><span class="p">,</span> <span class="n">nybb</span><span class="o">.</span><span class="n">crs</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>(&#39;+proj=longlat +ellps=WGS84 +datum=WGS84 +no_defs&#39;, {&#39;init&#39;: &#39;epsg:2263&#39;})
+</pre></div>
+</div>
+</div>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
-<span class="n">mapped</span><span class="o">.</span><span class="n">add_basemap</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">zoom</span><span class="o">=</span><span class="s1">&#39;auto&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;off&#39;</span><span class="p">,</span> <span class="n">epsg</span><span class="o">=</span><span class="mi">2263</span><span class="p">);</span>
+<span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">nybb</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">basemap</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+<span class="n">newark</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -521,9 +535,46 @@ div.rendered_html tbody tr:hover {
 <img alt="_images/example-basemap_13_0.png" src="_images/example-basemap_13_0.png" />
 </div>
 </div>
+<p>Mapped also offers a seperate <code class="docutils literal notranslate"><span class="pre">add_basemap</span></code> method to attach a basemap to an existing matplotlib <code class="docutils literal notranslate"><span class="pre">AxesSubplot</span></code>.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">nybb</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+<span class="n">mapped</span><span class="o">.</span><span class="n">add_basemap</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;off&#39;</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="_images/example-basemap_15_0.png" src="_images/example-basemap_15_0.png" />
+</div>
+</div>
+<p>This is particularly useful when you want to add multiple sets of overlay tiles, for example to add map labels floating above the objects you draw.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">nybb</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+<span class="n">mapped</span><span class="o">.</span><span class="n">add_basemap</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;off&#39;</span><span class="p">,</span> <span class="n">tiles</span><span class="o">=</span><span class="s1">&#39;Stamen.TonerBackground&#39;</span><span class="p">)</span>
+<span class="n">mapped</span><span class="o">.</span><span class="n">add_basemap</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="s1">&#39;off&#39;</span><span class="p">,</span> <span class="n">tiles</span><span class="o">=</span><span class="s1">&#39;Stamen.TonerLabels&#39;</span><span class="p">,</span> <span class="n">zoom</span><span class="o">=</span><span class="mi">10</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="_images/example-basemap_17_0.png" src="_images/example-basemap_17_0.png" />
+</div>
+</div>
 <dl class="function">
 <dt id="mapped.add_basemap">
-<code class="descclassname">mapped.</code><code class="descname">add_basemap</code><span class="sig-paren">(</span><em>ax</em>, <em>zoom=’auto’</em>, <em>max_tiles=20</em>, <em>tiles=’http://tile.stamen.com/terrain/{z}/{x}/{y}.png’</em>, <em>crs=None</em>, <em>epsg=None</em>, <em>axis=’off’</em>, <em>figsize=None</em><span class="sig-paren">)</span><a class="headerlink" href="#mapped.add_basemap" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">mapped.</code><code class="descname">add_basemap</code><span class="sig-paren">(</span><em>ax</em>, <em>zoom=’auto’</em>, <em>tiles=’Stamen.Terrain’</em>, <em>crs=None</em>, <em>epsg=None</em>, <em>axis=’off’</em>, <em>figsize=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#mapped.add_basemap" title="Permalink to this definition">¶</a></dt>
 <dd><p>Add a basemap to a matplotlib map plot.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
@@ -538,16 +589,14 @@ and level of detail in the mapping tiles used to render a base map.
 Selecting a zoom level that is too high will result in a large download
 with excessive detail (and unreadably small labels, if labels are included
 in the tiles).</li>
-<li><strong>max_tiles</strong> (<em>int</em><em>, </em><em>default 20</em>) – The maximum number of map tiles to download for this basemap.  Used only
-if <cite>zoom</cite> is ‘auto’, in which case <cite>zoom</cite> is set to the highest level that
-will result in not more than this many map tiles being loaded.</li>
 <li><strong>tiles</strong> (<em>str</em>) – The base url to use for the map tile, or a named value in
-contextily.sources, for example: OSM_A, ST_TERRAIN, ST_TONER_LITE.
-See <cite>https://github.com/darribas/contextily/blob/master/contextily/tile_providers.py</cite>
-for other named values.</li>
+contextily.sources, for example: “OpenStreetMap”, “Stamen.Terrain”, “Stamen.TonerLite”.
+See <cite>https://github.com/darribas/contextily/blob/master/contextily/_providers.py</cite>
+for other possible values.</li>
 <li><strong>crs</strong> (<em>dict</em><em>, </em><em>optional</em>) – The coordinate reference system of the map being rendered.  Map tiles are
 all in web mercator (epsg:3857), so if the map is some other CRS, it must
-be given so that the correctly aligned tiles can be loaded.</li>
+be given so that the correctly aligned tiles can be loaded.  This function
+will also look for a <cite>crs</cite> attribute on <cite>ax</cite>.</li>
 <li><strong>epsg</strong> (<em>int</em><em>, </em><em>optional</em>) – You may specify a crs as an epsg integer here instead of using the <cite>crs</cite>
 argument.</li>
 <li><strong>axis</strong> (<em>str</em><em> or </em><em>None</em><em>, </em><em>default “off”</em>) – Set to “off” to remove the axis and axis labels, or “on” to draw axis labels.
@@ -593,7 +642,7 @@ fig.set_size_inches.</li>
     <p>
         &copy; Copyright 2019, Jeffrey Newman
       <span class="lastupdated">
-        Last updated on Dec 06, 2019.
+        Last updated on Dec 13, 2019.
       </span>
 
     </p>

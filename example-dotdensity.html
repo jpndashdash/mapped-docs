@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Dot Density Plots &mdash; mapped 19.12.0 documentation</title>
+  <title>Dot Density Plots &mdash; mapped 19.12.1 documentation</title>
   
 
   
@@ -64,7 +64,7 @@
             
             
               <div class="version">
-                19.12.0
+                19.12.1
               </div>
             
           
@@ -388,7 +388,7 @@ div.rendered_html tbody tr:hover {
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span><span class="kn">import</span> <span class="nn">geopandas</span> <span class="kn">as</span> <span class="nn">gpd</span>
 <span class="kn">import</span> <span class="nn">mapped</span>
-<span class="n">mapped</span><span class="o">.</span><span class="n">__version__</span>
+<span class="n">mapped</span><span class="o">.</span><span class="n">__version__</span><span class="p">,</span> <span class="n">gpd</span><span class="o">.</span><span class="n">__version__</span>
 </pre></div>
 </div>
 </div>
@@ -397,7 +397,7 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>&#39;19.12.0&#39;
+<span></span>(&#39;19.12.1&#39;, &#39;0.6.2&#39;)
 </pre></div>
 </div>
 </div>
@@ -458,7 +458,7 @@ div.rendered_html tbody tr:hover {
       <td>Staten Island</td>
       <td>330470.010332</td>
       <td>1.623820e+09</td>
-      <td>(POLYGON ((970217.0223999023 145643.3322143555...</td>
+      <td>MULTIPOLYGON (((970217.022 145643.332, 970227....</td>
       <td>479458</td>
     </tr>
     <tr>
@@ -467,7 +467,7 @@ div.rendered_html tbody tr:hover {
       <td>Queens</td>
       <td>896344.047763</td>
       <td>3.045213e+09</td>
-      <td>(POLYGON ((1029606.076599121 156073.8142089844...</td>
+      <td>MULTIPOLYGON (((1029606.077 156073.814, 102957...</td>
       <td>2358582</td>
     </tr>
     <tr>
@@ -476,7 +476,7 @@ div.rendered_html tbody tr:hover {
       <td>Brooklyn</td>
       <td>741080.523166</td>
       <td>1.937479e+09</td>
-      <td>(POLYGON ((1021176.479003906 151374.7969970703...</td>
+      <td>MULTIPOLYGON (((1021176.479 151374.797, 102100...</td>
       <td>2648771</td>
     </tr>
     <tr>
@@ -485,7 +485,7 @@ div.rendered_html tbody tr:hover {
       <td>Manhattan</td>
       <td>359299.096471</td>
       <td>6.364715e+08</td>
-      <td>(POLYGON ((981219.0557861328 188655.3157958984...</td>
+      <td>MULTIPOLYGON (((981219.056 188655.316, 980940....</td>
       <td>1664727</td>
     </tr>
     <tr>
@@ -494,7 +494,7 @@ div.rendered_html tbody tr:hover {
       <td>Bronx</td>
       <td>464392.991824</td>
       <td>1.186925e+09</td>
-      <td>(POLYGON ((1012821.805786133 229228.2645874023...</td>
+      <td>MULTIPOLYGON (((1012821.806 229228.265, 101278...</td>
       <td>1471160</td>
     </tr>
   </tbody>
@@ -525,12 +525,12 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <div class="output_area highlight-none notranslate"><div class="highlight"><pre>
-<span></span>0  0    POINT (926591.7322433983 139403.6036635698)
-   1    POINT (931420.9367935221 148380.6885785985)
-   2    POINT (945487.5450723831 167904.0144266054)
-   3     POINT (924059.0688579746 134740.859988616)
-   4    POINT (959353.1182804964 147064.2814910771)
-Name: geometry, dtype: object
+<span></span>0  0    POINT (918444.793 122684.940)
+   1    POINT (946389.317 169427.663)
+   2    POINT (951486.097 172255.074)
+   3    POINT (929640.480 147704.559)
+   4    POINT (929587.612 150638.626)
+Name: geometry, dtype: geometry
 </pre></div>
 </div>
 </div>
@@ -602,7 +602,7 @@ Name: geometry, dtype: object
     <p>
         &copy; Copyright 2019, Jeffrey Newman
       <span class="lastupdated">
-        Last updated on Dec 06, 2019.
+        Last updated on Dec 13, 2019.
       </span>
 
     </p>
