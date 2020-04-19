@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Base Maps &mdash; mapped 19.12.1 documentation</title>
+  <title>Base Maps &mdash; mapped 20.04.0 documentation</title>
   
 
   
@@ -64,7 +64,7 @@
             
             
               <div class="version">
-                19.12.1
+                20.04.0
               </div>
             
           
@@ -92,7 +92,9 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Base Maps</a></li>
 <li class="toctree-l1"><a class="reference internal" href="example-contours.html">Contour Maps</a></li>
 <li class="toctree-l1"><a class="reference internal" href="example-dotdensity.html">Dot Density Plots</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example-plotly.html">Plotly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example-plotly-choropleth.html">Plotly Choropleths</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example-plotly-density-heatmap.html">Plotly Density Heatmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example-plotly-scatter.html">Plotly Scatter Plot</a></li>
 </ul>
 
             
@@ -572,50 +574,6 @@ div.rendered_html tbody tr:hover {
 <img alt="_images/example-basemap_17_0.png" src="_images/example-basemap_17_0.png" />
 </div>
 </div>
-<dl class="function">
-<dt id="mapped.add_basemap">
-<code class="descclassname">mapped.</code><code class="descname">add_basemap</code><span class="sig-paren">(</span><em>ax</em>, <em>zoom=’auto’</em>, <em>tiles=’Stamen.Terrain’</em>, <em>crs=None</em>, <em>epsg=None</em>, <em>axis=’off’</em>, <em>figsize=None</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="headerlink" href="#mapped.add_basemap" title="Permalink to this definition">¶</a></dt>
-<dd><p>Add a basemap to a matplotlib map plot.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>ax</strong> (<em>AxesSubplot</em>) – The extent of the map is inferred from the axes, and the tiles are
-then rendered onto these axes.</li>
-<li><strong>zoom</strong> (<em>int</em><em>, or </em><em>‘auto’</em>) – The zoom level of the map tiles to download.  Note that this does
-not actually change the magnification of the rendered map, just the size
-and level of detail in the mapping tiles used to render a base map.
-Selecting a zoom level that is too high will result in a large download
-with excessive detail (and unreadably small labels, if labels are included
-in the tiles).</li>
-<li><strong>tiles</strong> (<em>str</em>) – The base url to use for the map tile, or a named value in
-contextily.sources, for example: “OpenStreetMap”, “Stamen.Terrain”, “Stamen.TonerLite”.
-See <cite>https://github.com/darribas/contextily/blob/master/contextily/_providers.py</cite>
-for other possible values.</li>
-<li><strong>crs</strong> (<em>dict</em><em>, </em><em>optional</em>) – The coordinate reference system of the map being rendered.  Map tiles are
-all in web mercator (epsg:3857), so if the map is some other CRS, it must
-be given so that the correctly aligned tiles can be loaded.  This function
-will also look for a <cite>crs</cite> attribute on <cite>ax</cite>.</li>
-<li><strong>epsg</strong> (<em>int</em><em>, </em><em>optional</em>) – You may specify a crs as an epsg integer here instead of using the <cite>crs</cite>
-argument.</li>
-<li><strong>axis</strong> (<em>str</em><em> or </em><em>None</em><em>, </em><em>default “off”</em>) – Set to “off” to remove the axis and axis labels, or “on” to draw axis labels.
-Set to None to leave the axis settings unchanged.</li>
-<li><strong>figsize</strong> (<em>tuple</em>) – The size of the map to render.  This argument is passed to
-fig.set_size_inches.</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"></p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">AxesSubplot</p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
 <script type="application/vnd.jupyter.widget-state+json">
 {"state": {}, "version_major": 2, "version_minor": 0}
 </script></div>
@@ -640,9 +598,9 @@ fig.set_size_inches.</li>
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2019, Jeffrey Newman
+        &copy; Copyright 2019-20, Jeffrey Newman
       <span class="lastupdated">
-        Last updated on Dec 13, 2019.
+        Last updated on Apr 19, 2020.
       </span>
 
     </p>

@@ -1,0 +1,571 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Plotly Density Heatmap &mdash; mapped 20.04.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script type="text/javascript" src="_static/jquery.js"></script>
+        <script type="text/javascript" src="_static/underscore.js"></script>
+        <script type="text/javascript" src="_static/doctools.js"></script>
+        <script type="text/javascript" src="_static/language_data.js"></script>
+        <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script type="text/javascript" src="https://unpkg.com/@jupyter-widgets/html-manager@^0.18.0/dist/embed-amd.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+  <link rel="stylesheet" href="_static/jupyter-sphinx.css" type="text/css" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Plotly Scatter Plot" href="example-plotly-scatter.html" />
+    <link rel="prev" title="Plotly Choropleths" href="example-plotly-choropleth.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> mapped
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                20.04.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="example-basemap.html">Base Maps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example-contours.html">Contour Maps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example-dotdensity.html">Dot Density Plots</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example-plotly-choropleth.html">Plotly Choropleths</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Plotly Density Heatmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example-plotly-scatter.html">Plotly Scatter Plot</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">mapped</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html">Docs</a> &raquo;</li>
+        
+      <li>Plotly Density Heatmap</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="_sources/example-plotly-density-heatmap.ipynb.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS for nbsphinx extension */
+
+/* remove conflicting styling from Sphinx themes */
+div.nbinput,
+div.nbinput div.prompt,
+div.nbinput div.input_area,
+div.nbinput div[class*=highlight],
+div.nbinput div[class*=highlight] pre,
+div.nboutput,
+div.nbinput div.prompt,
+div.nbinput div.output_area,
+div.nboutput div[class*=highlight],
+div.nboutput div[class*=highlight] pre {
+    background: none;
+    border: none;
+    padding: 0 0;
+    margin: 0;
+    box-shadow: none;
+}
+
+/* avoid gaps between output lines */
+div.nboutput div[class*=highlight] pre {
+    line-height: normal;
+}
+
+/* input/output containers */
+div.nbinput,
+div.nboutput {
+    display: -webkit-flex;
+    display: flex;
+    align-items: flex-start;
+    margin: 0;
+    width: 100%;
+}
+@media (max-width: 540px) {
+    div.nbinput,
+    div.nboutput {
+        flex-direction: column;
+    }
+}
+
+/* input container */
+div.nbinput {
+    padding-top: 5px;
+}
+
+/* last container */
+div.nblast {
+    padding-bottom: 5px;
+}
+
+/* input prompt */
+div.nbinput div.prompt pre {
+    color: #307FC1;
+}
+
+/* output prompt */
+div.nboutput div.prompt pre {
+    color: #BF5B3D;
+}
+
+/* all prompts */
+div.nbinput div.prompt,
+div.nboutput div.prompt {
+    min-width: 5ex;
+    padding-top: 0.4em;
+    padding-right: 0.4em;
+    text-align: right;
+    flex: 0;
+}
+@media (max-width: 540px) {
+    div.nbinput div.prompt,
+    div.nboutput div.prompt {
+        text-align: left;
+        padding: 0.4em;
+    }
+    div.nboutput div.prompt.empty {
+        padding: 0;
+    }
+}
+
+/* disable scrollbars on prompts */
+div.nbinput div.prompt pre,
+div.nboutput div.prompt pre {
+    overflow: hidden;
+}
+
+/* input/output area */
+div.nbinput div.input_area,
+div.nboutput div.output_area {
+    padding: 0.4em;
+    -webkit-flex: 1;
+    flex: 1;
+    overflow: auto;
+}
+@media (max-width: 540px) {
+    div.nbinput div.input_area,
+    div.nboutput div.output_area {
+        width: 100%;
+    }
+}
+
+/* input area */
+div.nbinput div.input_area {
+    border: 1px solid #e0e0e0;
+    border-radius: 2px;
+    background: #f5f5f5;
+}
+
+/* override MathJax center alignment in output cells */
+div.nboutput div[class*=MathJax] {
+    text-align: left !important;
+}
+
+/* override sphinx.ext.imgmath center alignment in output cells */
+div.nboutput div.math p {
+    text-align: left;
+}
+
+/* standard error */
+div.nboutput div.output_area.stderr {
+    background: #fdd;
+}
+
+/* ANSI colors */
+.ansi-black-fg { color: #3E424D; }
+.ansi-black-bg { background-color: #3E424D; }
+.ansi-black-intense-fg { color: #282C36; }
+.ansi-black-intense-bg { background-color: #282C36; }
+.ansi-red-fg { color: #E75C58; }
+.ansi-red-bg { background-color: #E75C58; }
+.ansi-red-intense-fg { color: #B22B31; }
+.ansi-red-intense-bg { background-color: #B22B31; }
+.ansi-green-fg { color: #00A250; }
+.ansi-green-bg { background-color: #00A250; }
+.ansi-green-intense-fg { color: #007427; }
+.ansi-green-intense-bg { background-color: #007427; }
+.ansi-yellow-fg { color: #DDB62B; }
+.ansi-yellow-bg { background-color: #DDB62B; }
+.ansi-yellow-intense-fg { color: #B27D12; }
+.ansi-yellow-intense-bg { background-color: #B27D12; }
+.ansi-blue-fg { color: #208FFB; }
+.ansi-blue-bg { background-color: #208FFB; }
+.ansi-blue-intense-fg { color: #0065CA; }
+.ansi-blue-intense-bg { background-color: #0065CA; }
+.ansi-magenta-fg { color: #D160C4; }
+.ansi-magenta-bg { background-color: #D160C4; }
+.ansi-magenta-intense-fg { color: #A03196; }
+.ansi-magenta-intense-bg { background-color: #A03196; }
+.ansi-cyan-fg { color: #60C6C8; }
+.ansi-cyan-bg { background-color: #60C6C8; }
+.ansi-cyan-intense-fg { color: #258F8F; }
+.ansi-cyan-intense-bg { background-color: #258F8F; }
+.ansi-white-fg { color: #C5C1B4; }
+.ansi-white-bg { background-color: #C5C1B4; }
+.ansi-white-intense-fg { color: #A1A6B2; }
+.ansi-white-intense-bg { background-color: #A1A6B2; }
+
+.ansi-default-inverse-fg { color: #FFFFFF; }
+.ansi-default-inverse-bg { background-color: #000000; }
+
+.ansi-bold { font-weight: bold; }
+.ansi-underline { text-decoration: underline; }
+
+/* Some additional styling taken form the Jupyter notebook CSS */
+div.rendered_html table {
+  border: none;
+  border-collapse: collapse;
+  border-spacing: 0;
+  color: black;
+  font-size: 12px;
+  table-layout: fixed;
+}
+div.rendered_html thead {
+  border-bottom: 1px solid black;
+  vertical-align: bottom;
+}
+div.rendered_html tr,
+div.rendered_html th,
+div.rendered_html td {
+  text-align: right;
+  vertical-align: middle;
+  padding: 0.5em 0.5em;
+  line-height: normal;
+  white-space: normal;
+  max-width: none;
+  border: none;
+}
+div.rendered_html th {
+  font-weight: bold;
+}
+div.rendered_html tbody tr:nth-child(odd) {
+  background: #f5f5f5;
+}
+div.rendered_html tbody tr:hover {
+  background: rgba(66, 165, 245, 0.2);
+}
+
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast,
+.nboutput.nblast {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast + .nbinput {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="Plotly-Density-Heatmap">
+<h1>Plotly Density Heatmap<a class="headerlink" href="#Plotly-Density-Heatmap" title="Permalink to this headline">¶</a></h1>
+<p>This example reviews plotting density heatmap from a GeoDataFrame using plotly.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">mapped</span>
+<span class="kn">import</span> <span class="nn">geopandas</span> <span class="kn">as</span> <span class="nn">gpd</span>
+<span class="kn">import</span> <span class="nn">plotly</span>
+<span class="kn">from</span> <span class="nn">plotly.graph_objects</span> <span class="kn">import</span> <span class="n">Figure</span>
+<span class="n">mapped</span><span class="o">.</span><span class="n">__version__</span><span class="p">,</span> <span class="n">gpd</span><span class="o">.</span><span class="n">__version__</span><span class="p">,</span> <span class="n">plotly</span><span class="o">.</span><span class="n">__version__</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="output_area highlight-none notranslate"><div class="highlight"><pre>
+<span></span>(&#39;20.04.0&#39;, &#39;0.7.0&#39;, &#39;4.6.0&#39;)
+</pre></div>
+</div>
+</div>
+<p>First load some example point data.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">mapped.example_data</span> <span class="kn">import</span> <span class="n">mad_points</span>
+<span class="n">points</span> <span class="o">=</span> <span class="n">mad_points</span><span class="p">()</span>
+<span class="n">points</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/Users/jpn/anaconda3/envs/garage37/lib/python3.7/site-packages/pyproj/crs/crs.py:53: FutureWarning:
+
+&#39;+init=&lt;authority&gt;:&lt;code&gt;&#39; syntax is deprecated. &#39;&lt;authority&gt;:&lt;code&gt;&#39; is the preferred initialization method. When making the change, be mindful of axis order changes: https://pyproj4.github.io/pyproj/stable/gotchas.html#axis-order-changes-in-proj-6
+
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>number</th>
+      <th>letter</th>
+      <th>geometry</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>73.522015</td>
+      <td>A</td>
+      <td>POINT (-9945192.638 5333669.463)</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>59.605820</td>
+      <td>A</td>
+      <td>POINT (-9952134.036 5321688.221)</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>52.676887</td>
+      <td>A</td>
+      <td>POINT (-9937860.167 5328515.553)</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>22.133990</td>
+      <td>B</td>
+      <td>POINT (-9948386.303 5310253.324)</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>34.937765</td>
+      <td>A</td>
+      <td>POINT (-9963868.554 5319452.429)</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<p>The heatmap generates a <a class="reference external" href="https://plot.ly/python/mapbox-density-heatmaps/">Mapbox Density Heatmap</a>, not a plain heatmap.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span><span class="n">points</span><span class="o">.</span><span class="n">plotly_heatmap</span><span class="p">(</span>
+    <span class="s1">&#39;number&#39;</span><span class="p">,</span>
+    <span class="n">radius</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+    <span class="n">mapbox_style</span><span class="o">=</span><span class="s1">&#39;carto-positron&#39;</span><span class="p">,</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "9fef5f17fc2f49ae9c59155e9bba3665", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+<script type="application/vnd.jupyter.widget-state+json">
+{"state": {"9fef5f17fc2f49ae9c59155e9bba3665": {"buffers": [{"data": "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", "encoding": "base64", "path": ["_data", 0, "hovertext", "value"]}, {"data": "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", "encoding": "base64", "path": ["_data", 0, "lat", "value"]}, {"data": "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", "encoding": "base64", "path": ["_data", 0, "lon", "value"]}, {"data": "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", "encoding": "base64", "path": ["_data", 0, "z", "value"]}], "model_module": "plotlywidget", "model_module_version": "4.6.0", "model_name": "FigureModel", "state": {"_config": {"plotlyServerURL": "https://plot.ly"}, "_data": [{"coloraxis": "coloraxis", "hovertemplate": "<b>%{hovertext}</b><br><br>z=%{z}<br>lat=%{lat}<br>lon=%{lon}<extra></extra>", "hovertext": {"dtype": "float64", "shape": [239]}, "lat": {"dtype": "float64", "shape": [239]}, "lon": {"dtype": "float64", "shape": [239]}, "name": "", "radius": 10, "subplot": "mapbox", "type": "densitymapbox", "uid": "4cc82809-0f09-440b-9e6c-f9d4e7d5614a", "z": {"dtype": "float64", "shape": [239]}}], "_js2py_pointsCallback": {}, "_js2py_relayout": {}, "_js2py_restyle": {}, "_js2py_update": {}, "_last_layout_edit_id": 1, "_last_trace_edit_id": 1, "_layout": {"coloraxis": {"colorbar": {"title": {"text": "z"}}, "colorscale": [[0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1, "#f0f921"]]}, "legend": {"tracegroupgap": 0}, "mapbox": {"center": {"lat": 43.0749011934638, "lon": -89.4120515482476}, "domain": {"x": [0, 1], "y": [0, 1]}, "style": "carto-positron", "zoom": 8.5}, "margin": {"b": 0, "l": 0, "r": 0, "t": 0}, "template": {"data": {"bar": [{"error_x": {"color": "#2a3f5f"}, "error_y": {"color": "#2a3f5f"}, "marker": {"line": {"color": "#E5ECF6", "width": 0.5}}, "type": "bar"}], "barpolar": [{"marker": {"line": {"color": "#E5ECF6", "width": 0.5}}, "type": "barpolar"}], "carpet": [{"aaxis": {"endlinecolor": "#2a3f5f", "gridcolor": "white", "linecolor": "white", "minorgridcolor": "white", "startlinecolor": "#2a3f5f"}, "baxis": {"endlinecolor": "#2a3f5f", "gridcolor": "white", "linecolor": "white", "minorgridcolor": "white", "startlinecolor": "#2a3f5f"}, "type": "carpet"}], "choropleth": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "type": "choropleth"}], "contour": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1, "#f0f921"]], "type": "contour"}], "contourcarpet": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "type": "contourcarpet"}], "heatmap": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1, "#f0f921"]], "type": "heatmap"}], "heatmapgl": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1, "#f0f921"]], "type": "heatmapgl"}], "histogram": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "histogram"}], "histogram2d": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1, "#f0f921"]], "type": "histogram2d"}], "histogram2dcontour": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1, "#f0f921"]], "type": "histogram2dcontour"}], "mesh3d": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "type": "mesh3d"}], "parcoords": [{"line": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "parcoords"}], "pie": [{"automargin": true, "type": "pie"}], "scatter": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatter"}], "scatter3d": [{"line": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatter3d"}], "scattercarpet": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scattercarpet"}], "scattergeo": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scattergeo"}], "scattergl": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scattergl"}], "scattermapbox": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scattermapbox"}], "scatterpolar": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatterpolar"}], "scatterpolargl": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatterpolargl"}], "scatterternary": [{"marker": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "type": "scatterternary"}], "surface": [{"colorbar": {"outlinewidth": 0, "ticks": ""}, "colorscale": [[0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1, "#f0f921"]], "type": "surface"}], "table": [{"cells": {"fill": {"color": "#EBF0F8"}, "line": {"color": "white"}}, "header": {"fill": {"color": "#C8D4E3"}, "line": {"color": "white"}}, "type": "table"}]}, "layout": {"annotationdefaults": {"arrowcolor": "#2a3f5f", "arrowhead": 0, "arrowwidth": 1}, "coloraxis": {"colorbar": {"outlinewidth": 0, "ticks": ""}}, "colorscale": {"diverging": [[0, "#8e0152"], [0.1, "#c51b7d"], [0.2, "#de77ae"], [0.3, "#f1b6da"], [0.4, "#fde0ef"], [0.5, "#f7f7f7"], [0.6, "#e6f5d0"], [0.7, "#b8e186"], [0.8, "#7fbc41"], [0.9, "#4d9221"], [1, "#276419"]], "sequential": [[0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1, "#f0f921"]], "sequentialminus": [[0, "#0d0887"], [0.1111111111111111, "#46039f"], [0.2222222222222222, "#7201a8"], [0.3333333333333333, "#9c179e"], [0.4444444444444444, "#bd3786"], [0.5555555555555556, "#d8576b"], [0.6666666666666666, "#ed7953"], [0.7777777777777778, "#fb9f3a"], [0.8888888888888888, "#fdca26"], [1, "#f0f921"]]}, "colorway": ["#636efa", "#EF553B", "#00cc96", "#ab63fa", "#FFA15A", "#19d3f3", "#FF6692", "#B6E880", "#FF97FF", "#FECB52"], "font": {"color": "#2a3f5f"}, "geo": {"bgcolor": "white", "lakecolor": "white", "landcolor": "#E5ECF6", "showlakes": true, "showland": true, "subunitcolor": "white"}, "hoverlabel": {"align": "left"}, "hovermode": "closest", "mapbox": {"style": "light"}, "paper_bgcolor": "white", "plot_bgcolor": "#E5ECF6", "polar": {"angularaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}, "bgcolor": "#E5ECF6", "radialaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}}, "scene": {"xaxis": {"backgroundcolor": "#E5ECF6", "gridcolor": "white", "gridwidth": 2, "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white"}, "yaxis": {"backgroundcolor": "#E5ECF6", "gridcolor": "white", "gridwidth": 2, "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white"}, "zaxis": {"backgroundcolor": "#E5ECF6", "gridcolor": "white", "gridwidth": 2, "linecolor": "white", "showbackground": true, "ticks": "", "zerolinecolor": "white"}}, "shapedefaults": {"line": {"color": "#2a3f5f"}}, "ternary": {"aaxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}, "baxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}, "bgcolor": "#E5ECF6", "caxis": {"gridcolor": "white", "linecolor": "white", "ticks": ""}}, "title": {"x": 0.05}, "xaxis": {"automargin": true, "gridcolor": "white", "linecolor": "white", "ticks": "", "title": {"standoff": 15}, "zerolinecolor": "white", "zerolinewidth": 2}, "yaxis": {"automargin": true, "gridcolor": "white", "linecolor": "white", "ticks": "", "title": {"standoff": 15}, "zerolinecolor": "white", "zerolinewidth": 2}}}}, "_model_module_version": "4.6.0", "_py2js_addTraces": {}, "_py2js_animate": {}, "_py2js_deleteTraces": {}, "_py2js_moveTraces": {}, "_py2js_relayout": {}, "_py2js_removeLayoutProps": {}, "_py2js_removeTraceProps": {}, "_py2js_restyle": {}, "_view_count": 1, "_view_module_version": "4.6.0"}}}, "version_major": 2, "version_minor": 0}
+</script></div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="example-plotly-scatter.html" class="btn btn-neutral float-right" title="Plotly Scatter Plot" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="example-plotly-choropleth.html" class="btn btn-neutral float-left" title="Plotly Choropleths" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2019-20, Jeffrey Newman
+      <span class="lastupdated">
+        Last updated on Apr 19, 2020.
+      </span>
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

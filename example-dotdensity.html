@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Dot Density Plots &mdash; mapped 19.12.1 documentation</title>
+  <title>Dot Density Plots &mdash; mapped 20.04.0 documentation</title>
   
 
   
@@ -39,7 +39,7 @@
   <link rel="stylesheet" href="_static/jupyter-sphinx.css" type="text/css" />
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Plotly" href="example-plotly.html" />
+    <link rel="next" title="Plotly Choropleths" href="example-plotly-choropleth.html" />
     <link rel="prev" title="Contour Maps" href="example-contours.html" /> 
 </head>
 
@@ -64,7 +64,7 @@
             
             
               <div class="version">
-                19.12.1
+                20.04.0
               </div>
             
           
@@ -92,7 +92,9 @@
 <li class="toctree-l1"><a class="reference internal" href="example-basemap.html">Base Maps</a></li>
 <li class="toctree-l1"><a class="reference internal" href="example-contours.html">Contour Maps</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Dot Density Plots</a></li>
-<li class="toctree-l1"><a class="reference internal" href="example-plotly.html">Plotly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example-plotly-choropleth.html">Plotly Choropleths</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example-plotly-density-heatmap.html">Plotly Density Heatmap</a></li>
+<li class="toctree-l1"><a class="reference internal" href="example-plotly-scatter.html">Plotly Scatter Plot</a></li>
 </ul>
 
             
@@ -550,32 +552,6 @@ Name: geometry, dtype: geometry
 <img alt="_images/example-dotdensity_6_0.png" src="_images/example-dotdensity_6_0.png" />
 </div>
 </div>
-<dl class="method">
-<dt id="geopandas.GeoDataFrame.dotdensity">
-<code class="descclassname">GeoDataFrame.</code><code class="descname">dotdensity</code><span class="sig-paren">(</span><em>values</em>, <em>units_per_point=1</em>, <em>seed=None</em><span class="sig-paren">)</span><a class="headerlink" href="#geopandas.GeoDataFrame.dotdensity" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create a GeoSeries of random points in polygons.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>gdf</strong> (<em>GeoDataFrame</em>) – The areas in which to create points</li>
-<li><strong>values</strong> (<em>str</em><em> or </em><em>Series</em>) – The [possibly scaled] number of points to create in each area</li>
-<li><strong>units_per_point</strong> (<em>numeric</em><em>, </em><em>optional</em>) – The rate to scale the values in point generation.</li>
-<li><strong>seed</strong> (<em>int</em><em>, </em><em>optional</em>) – A random seed</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"></p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">GeoSeries</p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
 <script type="application/vnd.jupyter.widget-state+json">
 {"state": {}, "version_major": 2, "version_minor": 0}
 </script></div>
@@ -588,7 +564,7 @@ Name: geometry, dtype: geometry
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="example-plotly.html" class="btn btn-neutral float-right" title="Plotly" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="example-plotly-choropleth.html" class="btn btn-neutral float-right" title="Plotly Choropleths" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="example-contours.html" class="btn btn-neutral float-left" title="Contour Maps" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
@@ -600,9 +576,9 @@ Name: geometry, dtype: geometry
 
   <div role="contentinfo">
     <p>
-        &copy; Copyright 2019, Jeffrey Newman
+        &copy; Copyright 2019-20, Jeffrey Newman
       <span class="lastupdated">
-        Last updated on Dec 13, 2019.
+        Last updated on Apr 19, 2020.
       </span>
 
     </p>
