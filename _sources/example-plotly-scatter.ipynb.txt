@@ -315,20 +315,23 @@
           "dtype": "float64",
           "shape": [
            174
-          ]
+          ],
+          "value": {}
          },
          "lat": {
           "dtype": "float64",
           "shape": [
            174
-          ]
+          ],
+          "value": {}
          },
          "legendgroup": "A",
          "lon": {
           "dtype": "float64",
           "shape": [
            174
-          ]
+          ],
+          "value": {}
          },
          "marker": {
           "color": "#636efa",
@@ -336,7 +339,8 @@
            "dtype": "float64",
            "shape": [
             174
-           ]
+           ],
+           "value": {}
           },
           "sizemode": "area",
           "sizeref": 0.22344021807035522
@@ -530,20 +534,23 @@
           "dtype": "float64",
           "shape": [
            65
-          ]
+          ],
+          "value": {}
          },
          "lat": {
           "dtype": "float64",
           "shape": [
            65
-          ]
+          ],
+          "value": {}
          },
          "legendgroup": "B",
          "lon": {
           "dtype": "float64",
           "shape": [
            65
-          ]
+          ],
+          "value": {}
          },
          "marker": {
           "color": "#EF553B",
@@ -551,7 +558,8 @@
            "dtype": "float64",
            "shape": [
             65
-           ]
+           ],
+           "value": {}
           },
           "sizemode": "area",
           "sizeref": 0.22344021807035522
